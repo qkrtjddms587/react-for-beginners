@@ -1,11 +1,14 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-function Movie({ coverImg, title, year, summary, genres, rating }) {
+function Movie({ id, coverImg, title, year, summary, genres, rating }) {
   return (
     <div>
       <img src={coverImg} alt={title} />
       <h2>
-        {title} ({year})
+        <Link to={`/movie/${id}`}>
+          {title} ({year})
+        </Link>
       </h2>
       <p style={{ maxHeight: "100px", overflow: "scroll" }}>{summary}</p>
       {genres.map((genre, index) => (
